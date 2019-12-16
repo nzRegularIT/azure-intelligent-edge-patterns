@@ -1,31 +1,14 @@
-# AzureStack Modular Site-2-Site VPN
+# AzureStack SSTP VPN Server
 
 ***This template is intended for use in an Azure Stack environment.***
 
-The purpose of this template is to offer a modular solution to connect vnets and networks across resource groups, across subscriptions, across azure stack instances and from Azure stack to other networks such as on-premises.  It is currently not possible to inteconnect Azure Stack VNets to one another using the built-in Virtual Network Gateway:  https://docs.microsoft.com/en-us/azure-stack/user/azure-stack-network-differences.  Support for this is coming soon but for now one must use NVA appliances to create a VPN tunnel between two Azure Stack VNets.  You my also want to refer to the single template deployment version that can be found here https://github.com/lucidqdreams/azure-intelligent-edge-patterns/tree/master/rras-ike-vnet-vnet
+The purpose of this template is to offer a solution for providing clients with a point to site SSTP VPN into their Azure Stack Virtual Network. It is currently not possible to use a point-to-site connection to the Azure Stack Virtual Network Gateway.
 
-This template has been designed to enable a number of different scenarios for Azure Stack connectivity.  It has been designed in a modular with 3 templates so that you can deploy the infrastructure and then deploy an IKE or GRE tunnel on top of that infrastructure meaning you can deploy the tunnel endpoint in different locations such as different in resource groups, across subscriptions, across different Azure Stack instances and even from Azure Stack to on-premises.  
+# This is currently a work in progress.
 
-## Scenarios
+## Note: only the scripts azuredeploy.json and azuredeploy.parameters.json are currently working to deploy a single Windows VM
 
-![alt text](https://raw.githubusercontent.com/lucidqdreams/azure-intelligent-edge-patterns/master/rras-vnet-vpntunnel/Images/Scenarios.jpg)
-
-## Architecture
-
-### Network Overview & Resource Group
-This is an overview of the networking components that are deployed and a detailed view of all the components in the infrastructre template
-
-![alt text](https://raw.githubusercontent.com/lucidqdreams/azure-intelligent-edge-patterns/master/rras-vnet-vpntunnel/Images/Combined.jpg)
-
-## The deployment process
-
-Now we have an understanding of the architecture it is import to understand the deployment process.  These templates have been designed in such a way they can be deployed use automation.  THere is one template for the infrastrcuture components and a template to configure the site-2-site VPN tunnel on the infrastucture.  The infrastructure templates will generate output which is meant to be the input for the tunnel template.
-
-### Process Example
-
-For this example lets say we want to deploy a site-2-site VPN between two Azure Stack instances, Instance-A and Instance-B.  You would need to deploy infrastructure template for Instance-A first, then deploy infrastructure for Instance-B. Next you use the outputs with the tunnel template. from Instance-B to configure the Tunnel template for Instance-A and the output from Instance-A to configure the tunnel for Instance-B.  The Tunnel templates use the input values to run the script to create the interface tunnel on the VM and also create the routes in the route table for the subnet.
-
-![alt text](https://raw.githubusercontent.com/lucidqdreams/azure-intelligent-edge-patterns/master/rras-vnet-vpntunnel/Images/TheProcess.jpg)
+## Ignore the remaining steps, documentation pending!
 
 ### Deployment Steps
 
