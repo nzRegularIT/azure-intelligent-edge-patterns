@@ -4,6 +4,12 @@
 
 The purpose of this template is to offer a solution for providing clients with a point to site SSTP VPN into their Azure Stack Virtual Network. It is currently not possible to use a point-to-site connection to the Azure Stack Virtual Network Gateway.
 
+# This is currently a work in progress.
+
+## Note: only the scripts azuredeploy.json and azuredeploy.parameters.json are currently working to deploy a single Windows VM
+
+## Ignore the remaining steps, documentation pending!
+
 ### Deployment Steps
 
 1. Deploy Infrastructure to Instance A using azuredeploy.json
